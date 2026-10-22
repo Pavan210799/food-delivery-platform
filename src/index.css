@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Syne", "Avenir Next", "Segoe UI", sans-serif;
+  --font-sans: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+  --color-cream: #f4f0ea;
+  --color-paper: #fbf8f4;
+  --color-ink: #161311;
+  --color-muted: #6a5f56;
+  --color-line: #e3d8c9;
+  --color-copper: #c45c26;
+  --color-copper-dark: #8d3e12;
+  --color-sand: #ebe2d4;
+  --color-sage: #24543c;
+  --color-gold: #8d6b32;
+  --color-danger: #8c2e2e;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--color-cream);
+    background-image:
+      radial-gradient(1000px 520px at 88% -8%, rgba(196, 92, 38, 0.1), transparent 55%),
+      radial-gradient(720px 440px at -8% 18%, rgba(36, 84, 60, 0.06), transparent 52%);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    letter-spacing: -0.011em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.04em;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  ::selection {
+    background: #e8c7b4;
+    color: #161311;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid #c45c26;
+    outline-offset: 3px;
+  }
+
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: none;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+@utility page-wrap {
+  width: min(72rem, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+@media (min-width: 640px) {
+  .page-wrap {
+    width: min(72rem, calc(100% - 3.5rem));
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-wrap {
+    width: min(72rem, calc(100% - 4rem));
+  }
+}
+
+#kitchens,
+#offers,
+#how,
+#popular,
+#why {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
