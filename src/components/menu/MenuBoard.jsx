@@ -30,7 +30,7 @@ export default function MenuBoard({ menu, course, diet, onCourse, onDiet, onSele
       <div className="sticky top-16 z-30 border-y border-line bg-cream/90 backdrop-blur">
         <div className="page-wrap flex flex-col gap-3 py-3.5">
           <div
-            className="-mx-1 flex gap-2 overflow-x-auto px-1 py-1"
+            className="flex gap-2 overflow-x-auto overscroll-x-contain py-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             role="tablist"
             aria-label="Menu courses"
           >
@@ -54,7 +54,10 @@ export default function MenuBoard({ menu, course, diet, onCourse, onDiet, onSele
               )
             })}
           </div>
-          <div className="-mx-1 flex gap-2 overflow-x-auto px-1 py-0.5" aria-label="Dietary filters">
+          <div
+            className="flex gap-2 overflow-x-auto overscroll-x-contain py-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            aria-label="Dietary filters"
+          >
             {diets.map((item) => {
               const active = diet === item.id
               return (

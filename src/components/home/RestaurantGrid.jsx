@@ -95,7 +95,7 @@ export default function RestaurantGrid({ embedded = false }) {
             </div>
 
             <div
-              className="mt-4 flex gap-3 overflow-x-auto pb-1 sm:grid sm:grid-cols-3 sm:overflow-visible lg:grid-cols-6"
+              className="mt-4 flex gap-3 overflow-x-auto overscroll-x-contain pb-2 [-ms-overflow-style:none] [scrollbar-width:none] sm:grid sm:grid-cols-3 sm:overflow-visible sm:pb-1 lg:grid-cols-6 [&::-webkit-scrollbar]:hidden"
               role="group"
               aria-label="Cuisine filters"
             >
@@ -189,7 +189,7 @@ export default function RestaurantGrid({ embedded = false }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.35 }}
-              className="relative grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3"
+              className="relative grid gap-x-6 gap-y-10 overflow-x-clip sm:grid-cols-2 lg:grid-cols-3"
             >
               {restaurants.map((restaurant, index) => (
                 <RestaurantCard key={restaurant.id} restaurant={restaurant} index={index} />

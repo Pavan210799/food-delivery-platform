@@ -18,7 +18,7 @@ export default function RestaurantCard({ restaurant, index = 0 }) {
         to={`/restaurant/${restaurant.id}`}
         className="group relative block h-full rounded-[1.75rem] outline-none transition duration-150 ease-out hover:z-10"
       >
-        <div className="h-full origin-center overflow-hidden rounded-[1.75rem] border border-line/70 bg-paper transition duration-150 ease-out group-hover:scale-[1.025] group-hover:border-ink/20 group-hover:shadow-[0_22px_40px_-24px_rgba(22,19,17,0.4)]">
+        <div className="h-full origin-center overflow-hidden rounded-[1.75rem] border border-line/70 bg-paper transition duration-150 ease-out group-hover:scale-[1.02] group-hover:border-ink/20 group-hover:shadow-[0_22px_40px_-24px_rgba(22,19,17,0.4)]">
           <div className="relative aspect-[5/4] overflow-hidden bg-sand">
             <Photo
               src={restaurant.image}

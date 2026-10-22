@@ -68,7 +68,7 @@ export default function Hero() {
           </motion.p>
           <motion.h1
             variants={fade}
-            className="mt-4 font-display text-[2.85rem] leading-[0.95] font-bold text-balance sm:text-6xl lg:text-[5.4rem]"
+            className="mt-4 font-display text-[2.35rem] leading-[0.95] font-bold text-balance min-[400px]:text-[2.85rem] sm:text-6xl lg:text-[5.4rem]"
           >
             Dinner from the city’s best rooms,
             <span className="block text-copper">at your door.</span>
@@ -92,18 +92,18 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.6 }}
-          className="mt-10 grid gap-3 border-t border-cream/15 pt-6 sm:grid-cols-[1fr_auto] sm:items-end"
+          className="mt-10 grid gap-5 border-t border-cream/15 pt-6 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] lg:items-end lg:gap-8"
         >
-          <dl className="grid grid-cols-3 gap-3 text-cream sm:max-w-lg">
+          <dl className="grid grid-cols-3 gap-3 text-cream">
             <Stat value={String(snapshot.kitchens)} label="Kitchens" />
             <Stat value={`${snapshot.eta}m`} label="Avg ride" />
             <Stat value={snapshot.rating} label="Rating" />
           </dl>
 
-          <div className="flex items-center justify-between gap-4 sm:justify-end">
+          <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4 lg:justify-end">
             <Link
               to={`/restaurant/${frame.restaurantId}`}
-              className="group min-w-0 text-cream"
+              className="group min-w-0 flex-1 text-cream lg:max-w-md lg:text-right"
             >
               <p className="text-[0.65rem] font-semibold tracking-[0.18em] text-cream/65 uppercase">
                 Now featuring
@@ -112,7 +112,10 @@ export default function Hero() {
                 {frame.kicker} · {frame.title}
               </p>
             </Link>
-            <div className="flex gap-2" aria-label="Featured slides">
+            <div
+              className="flex shrink-0 items-center gap-1.5 self-start sm:self-auto sm:gap-2"
+              aria-label="Featured slides"
+            >
               {heroFrames.map((item, index) => (
                 <button
                   key={item.restaurantId}
@@ -120,8 +123,10 @@ export default function Hero() {
                   aria-label={`Show ${item.kicker}`}
                   aria-current={index === active ? true : undefined}
                   onClick={() => setActive(index)}
-                  className={`h-2.5 rounded-full transition-all ${
-                    index === active ? 'w-8 bg-copper' : 'w-2.5 bg-cream/35 hover:bg-cream/60'
+                  className={`h-2 shrink-0 rounded-full transition-all sm:h-2.5 ${
+                    index === active
+                      ? 'w-6 bg-copper sm:w-8'
+                      : 'w-2 bg-cream/35 hover:bg-cream/60 sm:w-2.5'
                   }`}
                 />
               ))}
@@ -135,9 +140,11 @@ export default function Hero() {
 
 function Stat({ value, label }) {
   return (
-    <div>
-      <dt className="text-[0.62rem] font-semibold tracking-[0.16em] text-cream/55 uppercase">{label}</dt>
-      <dd className="mt-1 font-display text-2xl font-bold tracking-tight sm:text-3xl">{value}</dd>
+    <div className="min-w-0">
+      <dt className="truncate text-[0.58rem] font-semibold tracking-[0.14em] text-cream/55 uppercase sm:text-[0.62rem] sm:tracking-[0.16em]">
+        {label}
+      </dt>
+      <dd className="mt-1 font-display text-xl font-bold tracking-tight sm:text-3xl">{value}</dd>
     </div>
   )
 }

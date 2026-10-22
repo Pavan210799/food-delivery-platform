@@ -81,7 +81,7 @@ export default function SearchResults() {
               <h2 id="search-kitchens" className="font-display text-2xl font-bold tracking-tight">
                 Kitchens
               </h2>
-              <div className="mt-6 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-6 grid gap-x-6 gap-y-10 overflow-x-clip sm:grid-cols-2 lg:grid-cols-3">
                 {kitchens.map((restaurant, index) => (
                   <RestaurantCard key={restaurant.id} restaurant={restaurant} index={index} />
                 ))}
@@ -94,12 +94,12 @@ export default function SearchResults() {
               <h2 id="search-dishes" className="font-display text-2xl font-bold tracking-tight">
                 Dishes
               </h2>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-6 grid gap-4 overflow-x-clip sm:grid-cols-2 lg:grid-cols-3">
                 {dishes.map((dish) => (
                   <Link
                     key={`${dish.restaurantId}-${dish.id}`}
                     to={`/restaurant/${dish.restaurantId}`}
-                    className="group flex origin-center items-center gap-4 rounded-[1.5rem] border border-line bg-paper p-3 transition duration-150 ease-out hover:z-10 hover:scale-[1.03] hover:border-ink/20 hover:shadow-[0_18px_36px_-24px_rgba(22,19,17,0.35)]"
+                    className="group flex min-w-0 origin-center items-center gap-3 rounded-[1.5rem] border border-line bg-paper p-3 transition duration-150 ease-out hover:z-10 hover:scale-[1.02] hover:border-ink/20 hover:shadow-[0_18px_36px_-24px_rgba(22,19,17,0.35)] sm:gap-4"
                   >
                     <div className="h-24 w-24 shrink-0 overflow-hidden rounded-2xl">
                       <Photo

@@ -17,10 +17,10 @@ export default function CartPill() {
   return (
     <Link
       to="/cart"
-      className="fixed inset-x-4 bottom-4 z-40 mx-auto flex max-w-md items-center justify-between rounded-full bg-ink px-5 py-3.5 text-cream shadow-[0_18px_40px_-20px_rgba(28,22,18,0.8)] md:hidden"
+      className="fixed inset-x-3 bottom-3 z-40 mx-auto flex max-w-md items-center justify-between gap-3 rounded-full bg-ink px-4 py-3.5 text-cream shadow-[0_18px_40px_-20px_rgba(28,22,18,0.8)] sm:inset-x-4 sm:bottom-4 sm:px-5 md:hidden"
     >
-      <span className="text-sm font-semibold">View order · {count}</span>
-      <span className="text-sm tabular-nums">{money(quote.subtotal)}</span>
+      <span className="min-w-0 truncate text-sm font-semibold">View order · {count}</span>
+      <span className="shrink-0 text-sm tabular-nums">{money(quote.subtotal)}</span>
     </Link>
   )
 }

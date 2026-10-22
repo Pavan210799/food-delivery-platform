@@ -25,12 +25,17 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-line/80 bg-cream/85 backdrop-blur-md">
-      <div className="page-wrap flex h-16 items-center gap-3 sm:gap-4">
-        <Link to="/" onClick={goHome} className="rounded-xl text-ink" aria-label="Marlow home">
-          <Logo />
+      <div className="page-wrap flex h-16 min-w-0 items-center gap-2 sm:gap-3 md:gap-4">
+        <Link
+          to="/"
+          onClick={goHome}
+          className="shrink-0 rounded-xl text-ink"
+          aria-label="Marlow home"
+        >
+          <Logo compactMobile markClassName="h-8 w-8 sm:h-9 sm:w-9" />
         </Link>
 
-        <nav className="ml-2 hidden items-center gap-5 md:flex" aria-label="Primary">
+        <nav className="ml-1 hidden items-center gap-5 md:flex" aria-label="Primary">
           <Link
             to="/"
             onClick={goHome}
@@ -56,7 +61,7 @@ export default function Navbar() {
           </NavLink>
         </nav>
 
-        <div className="ml-auto min-w-0 w-full max-w-[12rem] sm:max-w-xs md:max-w-sm">
+        <div className="ml-auto min-w-0 flex-1 basis-0 max-w-none sm:max-w-xs md:max-w-sm">
           <SearchField
             id="nav-search"
             value={query}
@@ -68,7 +73,7 @@ export default function Navbar() {
 
         <NavLink
           to="/cart"
-          className="relative inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line bg-paper text-ink"
+          className="relative inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line bg-paper text-ink sm:h-11 sm:w-11"
           aria-label={`Cart, ${count} ${count === 1 ? 'item' : 'items'}`}
         >
           <BagIcon />
@@ -81,7 +86,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line bg-paper md:hidden"
+          className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line bg-paper sm:h-11 sm:w-11 md:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((value) => !value)}

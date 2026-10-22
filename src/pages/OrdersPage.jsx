@@ -43,7 +43,7 @@ export default function OrdersPage() {
           </div>
         </div>
       ) : (
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        <div className="mt-8 grid gap-4 overflow-x-clip sm:grid-cols-2">
           {orders.map((order) => (
             <OrderSummaryCard key={order.id} order={order} now={now} />
           ))}

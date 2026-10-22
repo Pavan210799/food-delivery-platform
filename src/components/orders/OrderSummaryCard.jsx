@@ -17,20 +17,22 @@ export default function OrderSummaryCard({ order, now }) {
     >
       <Link
         to={`/orders/${order.id}`}
-        className="group flex origin-center gap-4 rounded-[1.5rem] border border-line bg-paper p-4 transition duration-150 ease-out hover:z-10 hover:scale-[1.025] hover:border-ink/20 hover:shadow-[0_18px_36px_-24px_rgba(22,19,17,0.35)]"
+        className="group flex origin-center gap-3 rounded-[1.5rem] border border-line bg-paper p-3 transition duration-150 ease-out hover:z-10 hover:scale-[1.02] hover:border-ink/20 hover:shadow-[0_18px_36px_-24px_rgba(22,19,17,0.35)] sm:gap-4 sm:p-4"
       >
-        <div className="overflow-hidden rounded-[1.1rem]">
+        <div className="shrink-0 overflow-hidden rounded-[1.1rem]">
           <Photo
             src={order.restaurantImage}
             alt=""
-            className="h-20 w-20 shrink-0 object-cover transition duration-150 ease-out group-hover:scale-[1.08] sm:h-24 sm:w-24"
+            className="h-20 w-20 object-cover transition duration-150 ease-out group-hover:scale-[1.08] sm:h-24 sm:w-24"
           />
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-start justify-between gap-2">
-            <div>
-              <p className="text-[0.65rem] font-semibold tracking-[0.14em] text-muted uppercase">{order.id}</p>
-              <h3 className="mt-1 font-display text-xl font-bold tracking-tight transition group-hover:text-copper">
+            <div className="min-w-0">
+              <p className="truncate text-[0.65rem] font-semibold tracking-[0.14em] text-muted uppercase">
+                {order.id}
+              </p>
+              <h3 className="mt-1 font-display text-lg font-bold tracking-tight transition group-hover:text-copper sm:text-xl">
                 {order.restaurantName}
               </h3>
             </div>

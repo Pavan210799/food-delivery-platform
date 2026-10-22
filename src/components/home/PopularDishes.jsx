@@ -38,12 +38,12 @@ export default function PopularDishes() {
         </div>
       </Reveal>
 
-      <RevealStagger className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" delay={0.05}>
+      <RevealStagger className="mt-8 grid gap-4 overflow-x-clip sm:grid-cols-2 lg:grid-cols-3" delay={0.05}>
         {dishes.map((dish) => (
-          <motion.div key={`${dish.restaurantId}-${dish.id}`} variants={revealItem}>
+          <motion.div key={`${dish.restaurantId}-${dish.id}`} variants={revealItem} className="min-w-0">
             <Link
               to={`/restaurant/${dish.restaurantId}`}
-              className="group flex h-full origin-center items-center gap-4 rounded-[1.5rem] border border-line bg-paper p-3 transition duration-150 ease-out hover:z-10 hover:scale-[1.03] hover:border-ink/20 hover:shadow-[0_18px_36px_-24px_rgba(22,19,17,0.35)]"
+              className="group flex h-full origin-center items-center gap-3 rounded-[1.5rem] border border-line bg-paper p-3 transition duration-150 ease-out hover:z-10 hover:scale-[1.02] hover:border-ink/20 hover:shadow-[0_18px_36px_-24px_rgba(22,19,17,0.35)] sm:gap-4"
             >
               <div className="h-24 w-24 shrink-0 overflow-hidden rounded-2xl sm:h-28 sm:w-28">
                 <Photo
