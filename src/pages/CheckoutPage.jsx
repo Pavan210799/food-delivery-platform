@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Bill from '../components/cart/Bill'
 import Button, { ButtonLink } from '../components/ui/Button'
 import Field from '../components/ui/Field'
+import { useAuth } from '../context/AuthContext'
 import { useCart } from '../context/CartContext'
 import { useOrders } from '../context/OrdersContext'
 import { useTitle } from '../hooks/useTitle'
@@ -12,9 +13,13 @@ import { money } from '../lib/format'
 
 export default function CheckoutPage() {
   const navigate = useNavigate()
+  const { user } = useAuth()
   const { items, restaurant, quote, coupon, clearCart } = useCart()
   const { placeOrder } = useOrders()
-  const [values, setValues] = useState(emptyCheckout)
+  const [values, setValues] = useState(() => ({
+    ...emptyCheckout,
+    name: user?.name || '',
+  }))
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
   const [banner, setBanner] = useState('')
@@ -78,7 +83,10 @@ export default function CheckoutPage() {
     <div className="page-wrap py-10 sm:py-14">
       <p className="text-[0.7rem] font-semibold tracking-[0.22em] text-copper uppercase">Checkout</p>
       <h1 className="mt-2 font-display text-4xl font-bold tracking-tight sm:text-5xl">Delivery details</h1>
-      <p className="mt-3 max-w-lg text-muted">Just the three things we need to reach you.</p>
+      <p className="mt-3 max-w-lg text-sm text-muted sm:text-base">
+        Just the three things we need to reach you. This order saves to{' '}
+        <span className="break-all font-semibold text-ink">{user?.email}</span>.
+      </p>
 
       <div className="mt-8 grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-10">
         <motion.form

@@ -17,7 +17,7 @@ export default function SearchField({
       className="flex min-w-0 items-center gap-2 rounded-full border border-line bg-paper px-2.5 py-2 shadow-[0_18px_50px_-32px_rgba(28,22,18,0.65)] sm:gap-3 sm:px-4 sm:py-3"
     >
       <span className="shrink-0 text-muted">
-        <SearchIcon />
+        <SearchIcon className="shrink-0 text-muted" />
       </span>
       <input
         id={id}

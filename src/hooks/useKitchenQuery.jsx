@@ -30,7 +30,8 @@ export function KitchenQueryProvider({ children }) {
   useEffect(() => {
     if (searching && !wasSearching.current) {
       const focusSearch = () => {
-        const field = document.getElementById('nav-search')
+        const field =
+          document.getElementById('nav-search-desktop') || document.getElementById('nav-search')
         if (!field) return
         field.focus()
         const end = field.value.length
